@@ -1,0 +1,32 @@
+<div class="jumbotron" style="margin-top:2%">
+  <div class="row">
+    <div>
+        <h4>Insert value</h4>
+        <input type="text" id="message" [(ngModel)]="inputText" />
+    </div>
+    <div>
+        <select id="group" [(ngModel)]="selection">
+            <option *ngFor="let option of options" [value]="option" [innerHTML]="option"></option>
+        </select>
+        <input type="button" id="sendButton" value="sendMessage" (click)="sendMessage()"/>
+    </div>
+    <div>
+        <input type="button" id="joinPrivateGroup" value="Join Private Group" (click)="joinGroup()"/>
+      </div>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <h3>Values</h3>
+  <div id="messages">
+      <div *ngFor="let item of messages" [innerHTML]="item"></div>
+  </div>
+</div>
+
+
+
+
+
+
+
+ 
