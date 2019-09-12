@@ -18,11 +18,6 @@ namespace SignalRProject.Hubs
             return _hubContext.Clients.All.SendAsync("ReceiveMessage", message);
         }
 
-        public Task SendMessageToCaller(object message)
-        {
-            return Clients.Caller.SendAsync("ReceiveMessage", message);
-        }
-
         public Task SendMessageToUser(string connectionId, object message)
         {
             return _hubContext.Clients.Client(connectionId).SendAsync("ReceiveMessage", message);
