@@ -8,6 +8,8 @@ using SignalRProject.Hubs;
 
 namespace SignalRProject.Controllers
 {
+    [ApiController]
+    [Route("api/[controller]")]
     public class NotificationController : Controller
     {
         private readonly IMessageHub _messageHub;
@@ -17,7 +19,7 @@ namespace SignalRProject.Controllers
             _messageHub = messageHub;
         }
 
-        [HttpPost]
+        [HttpPost("")]
         public async Task<IActionResult> InsertMessage([FromBody] string message)
         {
             await _messageHub.SendMessageToAll(message);
